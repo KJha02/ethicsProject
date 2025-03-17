@@ -216,12 +216,8 @@ def eval_pipeline(judge_init, eval_model, multi_turn_data, single_turn_data):
         print('Datasets made')
         
         # assuming eval_model is a pipeline, we need to generate responses for each prompt
-        #multi_turn_responses = []
-        #single_turn_responses = []
-        #for ex in multi_turn_datapoint: 
-        multi_turn_responses = list(eval_model(mt_dataset, return_full_text=False, max_new_tokens=300))
-        #for ex in single_turn_datapoint: 
-        single_turn_responses = list(eval_model(st_dataset, return_full_text=False, max_new_tokens=300))
+        multi_turn_responses = list(eval_model(mt_dataset, return_full_text=False, max_new_tokens=30))
+        single_turn_responses = list(eval_model(st_dataset, return_full_text=False, max_new_tokens=30))
         
         print(f"Running evaluation for dataset {i}")
         for j in tqdm(range(len(multi_turn_responses))):
