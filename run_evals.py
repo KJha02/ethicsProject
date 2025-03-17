@@ -252,7 +252,8 @@ def main():
     results_df = eval_pipeline(llm_judge_init, llm_eval_model, multi_turn_data, single_turn_data)
 
     # save results_df to csv
-    results_df.to_csv(f'cosafe_res/{eval_model_name}_results_df.csv', index=False)
+    eval_model = eval_model_name[eval_model_name.find('/')+1:]
+    results_df.to_csv(f'/weka/oe-adapt-default/victoriag/{eval_model}_results_df.csv', index=False)
     
 if __name__ == '__main__':
     main()
